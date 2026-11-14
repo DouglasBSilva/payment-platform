@@ -1,4 +1,4 @@
-.PHONY: up down restart test
+.PHONY: up down restart test vet
 
 up:
 	docker compose -f deploy/docker-compose.yml up -d
@@ -11,3 +11,6 @@ restart:
 
 test:
 	go test ./...
+
+vet:
+	go vet ./...

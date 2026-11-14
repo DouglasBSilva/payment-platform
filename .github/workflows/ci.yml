@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: fetch_code
+        uses: actions/checkout@v4
+      - name: setup_go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+      - name: run_checks
+        run: make vet
+      - name: run_tests
+        run: make test
+
