@@ -1,0 +1,20 @@
+name: payment-platform
+
+services: 
+  payment-db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ledger
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ledger-dev-only}
+      POSTGRES_DB: ledger
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ledger -d ledger"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
