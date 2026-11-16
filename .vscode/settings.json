@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "localpostgres",
+            "connectString": "postgres://ledger:ledger-dev-only@127.0.0.1:5432/ledger?sslmode=disable"
+        }
+    ]
+}
