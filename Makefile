@@ -1,5 +1,5 @@
 ENV_FILE ?= deploy/.env
-include $(ENV_FILE)
+-include $(ENV_FILE)
 
 .PHONY: up down restart test vet migrate migrate-down migrate-status
 
